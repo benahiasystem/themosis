@@ -38,6 +38,3 @@ RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
 USER $user
-
-COPY composer.json composer.lock ./
-CMD bash -c "composer install && php console migrate"
