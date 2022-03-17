@@ -39,4 +39,5 @@ RUN mkdir -p /home/$user/.composer && \
 
 USER $user
 
-RUN composer install && php console migrate
+COPY composer.json composer.lock ./
+CMD bash -c "composer install && php console migrate"
