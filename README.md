@@ -3,30 +3,29 @@ Themosis framework
 
 [![Build Status](https://travis-ci.org/themosis/themosis.svg?branch=dev)](https://travis-ci.org/themosis/themosis)
 
-The Themosis framework is a tool aimed to WordPress developers of any levels. But the better WordPress and PHP knowledge you have the easier it is to work with.
+Themosis framework es una herramienta dirigida a desarrolladores de WordPress de cualquier nivel. Pero cuanto mejor conocimiento de WordPress y PHP tengas, más fácil será trabajar con él.
 
-Themosis framework is a tool to help you develop websites and web applications faster using [WordPress](https://wordpress.org). Using an elegant and simple code syntax, Themosis framework helps you structure and organize your code and allows you to better manage and scale your WordPress websites and applications.
+Themosis framework es una herramienta para ayudarlo a desarrollar sitios web y aplicaciones web más rápido utilizando [WordPress] (https://wordpress.org). Usando una sintaxis de código simple y elegante, Themosis framework lo ayuda a estructurar y organizar su código y le permite administrar y escalar mejor sus sitios web y aplicaciones de WordPress.
+
+Requisitos
+------------
+Ubuntu Server 20.04
+Docker version 20.10.12
+
+Configuración del dominio
+------------
+- Desde el gestor de DNS del dominio a conectar, configurar la ip publica del servidor de aplicaciones.
+- desde el servidor de aplicaciones habilitar el trafico HTTP y HTTPS.
 
 Installation
 ------------
-Please see the [installation section](https://framework.themosis.com/docs/master/installation/) of the Themosis documentation.
 
-Development team
-----------------
-The framework was created by [Julien Lambé](https://www.themosis.com/), who continues to lead the development.
-
-Contributing
-------------
-Any help is appreciated. The project is open-source and we encourage you to participate. You can contribute to the project in multiple ways by:
-
-- Reporting a bug issue
-- Suggesting features
-- Sending a pull request with code fix or feature
-- Following the project on [GitHub](https://github.com/themosis)
-- Following us on Twitter: [@Themosis](https://twitter.com/Themosis)
-- Sharing the project around your community
-
-For details about contributing to the framework, please check the [contribution guide](https://framework.themosis.com/docs/master/contributing).
+- Navegar hasta carpeta /var/www/html
+- clonar este repositorio 
+- ejecutar: cp .env.sample .env
+- en el archivo .env colocar la URL de la aplicación y datos de BD especificados en el docker-compose.yml en la sección mysql
+- ejecutar: docker-compose up -d
+- 
 
 License
 -------
