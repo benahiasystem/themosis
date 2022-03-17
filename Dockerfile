@@ -38,3 +38,5 @@ RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
 USER $user
+
+RUN composer install && php console migrate
