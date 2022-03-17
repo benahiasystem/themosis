@@ -21,7 +21,7 @@ services:
       - "80"
     restart: always
     environment:
-      - VIRTUAL_HOST=themosis.test
+      - VIRTUAL_HOST=banahia.xyz
     depends_on:
       - php
       - mysql
@@ -33,7 +33,7 @@ services:
     restart: always
     build:
       args:
-        user: benahiasystem
+        user: ubuntu
         uid: 1000
       context: .
       dockerfile: Dockerfile
