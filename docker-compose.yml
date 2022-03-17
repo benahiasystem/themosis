@@ -1,0 +1,52 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx-themosis
+    image: nginx
+    working_dir: /var/www/html/themosis
+    volumes:
+      - ./themosis.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html/themosis
+    ports:
+      - "8082:80"
+    restart: always
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - themosis
+
+  php:
+    container_name: php-themosis
+    restart: always
+    build:
+      args:
+        user: benahiasystem
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www/html/themosis
+    volumes:
+      - ./:/var/www/html/themosis
+    networks:
+      - themosis
+
+  mysql:
+    image: mysql:5.7.33
+    container_name: mysql
+    ports:
+      - "33068:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: themosis
+      MYSQL_ROOT_PASSWORD: admin.root
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - themosis
+
+networks:
+  themosis:
+    driver: bridge
